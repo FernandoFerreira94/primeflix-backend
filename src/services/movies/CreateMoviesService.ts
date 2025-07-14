@@ -74,5 +74,14 @@ export default async function CreateMoviesService({
     },
   });
 
+  console.log("Filme recebido:", {
+    title,
+    banner,
+    language,
+    release_data,
+    genres,
+    user_id,
+  });
+
   return movie;
 }

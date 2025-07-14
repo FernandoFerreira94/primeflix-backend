@@ -2,11 +2,13 @@ import express, { Request, Response, NextFunction } from "express";
 
 import cors from "cors";
 import { router } from "./router";
+import cookuieParser from "cookie-parser";
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(router);
+app.use(cookuieParser());
 
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   if (err instanceof Error) {
