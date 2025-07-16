@@ -8,10 +8,14 @@ export default async function DetailMoviesService(user_id: string) {
     select: {
       id: true,
       title: true,
-      banner: true,
+      filmeId: true,
       language: true,
       release_data: true,
-      genres: true,
+      genres: {
+        select: {
+          genre: true,
+        },
+      },
     },
   });
 

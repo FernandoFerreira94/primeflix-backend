@@ -6,14 +6,14 @@ export default async function CreateMoviesController(
   req: Request,
   res: Response
 ) {
-  const { title, banner, language, release_data, genres } = req.body;
+  const { title, banner, language, release_data, genres, filmeId } = req.body;
 
   const user_id = req.user_id;
 
   try {
     const createMovies = await CreateMoviesService({
       title,
-      banner,
+      filmeId,
       language,
       release_data,
       genres,

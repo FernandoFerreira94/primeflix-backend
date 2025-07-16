@@ -25,7 +25,7 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
 });
 
 app.get("/", (req, res) => {
-  res.json({ status: "online", message: "API DevPizza está funcionando 🍕" });
+  res.json({ status: "online", message: "API PrimeFlix funcionando 🍕" });
 });
 
-app.listen(3333, () => console.log("Server Online na porta 3333"));
+export default app;

@@ -7,22 +7,22 @@ interface GenreInput {
 
 interface MovieRequest {
   title: string;
-  banner: string;
   language: string;
   release_data: string;
   genres: GenreInput[];
   user_id: string;
+  filmeId: string;
 }
 
 export default async function CreateMoviesService({
   title,
-  banner,
   language,
   release_data,
   genres,
   user_id,
+  filmeId,
 }: MovieRequest) {
-  if (!title || !language || !release_data || !user_id) {
+  if (!title || !language || !release_data || !user_id || !filmeId) {
     throw new Error("Dados obrigatórios ausentes.");
   }
 
@@ -51,7 +51,7 @@ export default async function CreateMoviesService({
   const movie = await prismaClient.movie.create({
     data: {
       title,
-      banner,
+      filmeId,
       language,
       release_data,
       user: {
@@ -72,15 +72,6 @@ export default async function CreateMoviesService({
         },
       },
     },
-  });
-
-  console.log("Filme recebido:", {
-    title,
-    banner,
-    language,
-    release_data,
-    genres,
-    user_id,
   });
 
   return movie;

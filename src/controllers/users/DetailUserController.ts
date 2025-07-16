@@ -8,8 +8,6 @@ export default async function DetailUserController(
 ) {
   const user_Id = req.user_id;
 
-  console.log("ID DO USER", user_Id);
-
   const detailUser = await DetailUserService(user_Id);
   res.json(detailUser);
   return;
